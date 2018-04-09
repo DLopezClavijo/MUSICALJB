@@ -108,7 +108,7 @@ public class CantanteDAOImpJDBC implements CantanteDAO {
 		
 		ConnectionDAO.abrirConexion();
 		
-		String query ="SELECT * FROM CantanteS WHERE id = ?";
+		String query ="SELECT * FROM CANTANTES WHERE idArtista = ?";
 		
 		try {
 			PreparedStatement sentencia = ConnectionDAO.getConexion().prepareStatement(query);
@@ -139,7 +139,7 @@ public class CantanteDAOImpJDBC implements CantanteDAO {
 		
 		ConnectionDAO.abrirConexion();
 		
-		String query ="UPDATE CantanteS SET edad = ? WHERE id= ?";
+		String query ="UPDATE Cantantes SET edad = ? WHERE id= ?";
 		
 		try {
 			PreparedStatement sentencia = ConnectionDAO.getConexion().prepareStatement(query);

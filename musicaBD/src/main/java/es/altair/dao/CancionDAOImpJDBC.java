@@ -36,12 +36,12 @@ public class CancionDAOImpJDBC implements CancionDAO {
 			return true; 
 	}
 
-	public List<Cancion> mostrarCancionPorCantante1(int idCantante) {
+	public List<Cancion> mostrarCancionPorCantante(int idCantante) {
 		List<Cancion> cancionPorCantante = new ArrayList<Cancion>();
 		
 		ConnectionDAO.abrirConexion();
 		
-		String query = "SELECT * FROM CANCIONES WHERE idCantante = ?";
+		String query = "SELECT * FROM CANCIONES WHERE idArtista = ?";
 		
 		try {
 			PreparedStatement sentencia = ConnectionDAO.getConexion().prepareStatement(query);
@@ -86,7 +86,7 @@ public class CancionDAOImpJDBC implements CancionDAO {
 		int numFilas = 0; 
 		ConnectionDAO.abrirConexion();
 		
-		String query = "DELETE FROM CANCIONES WHERE idCantante = ?";
+		String query = "DELETE FROM CANCIONES WHERE idArtista = ?";
 		
 		try {
 			PreparedStatement sentencia = ConnectionDAO.getConexion().prepareStatement(query);
@@ -111,7 +111,7 @@ public class CancionDAOImpJDBC implements CancionDAO {
 		ConnectionDAO.abrirConexion();
 		
 		for (int i = 0; i < idCantante.size(); i++) {
-			String query = "UPDATE canciones SET duracion = duracion +1 WHERE idCantante = ?";
+			String query = "UPDATE canciones SET duracion = duracion +1 WHERE idArtista = ?";
 			
 			PreparedStatement sentencia;
 			try {
@@ -133,9 +133,6 @@ public class CancionDAOImpJDBC implements CancionDAO {
 			return true;
 	}
 
-	public List<Cancion> mostrarCancionPorCantante(int idCantante) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
